@@ -1,35 +1,88 @@
+# Knowledge-Based Recommender System Using Artificial Intelligence For Smart Education
 
-Knowledge-Based Recommender System for Smart Education
-======================================================
+## Title of the Project
+**Knowledge-Based Recommender System Using Artificial Intelligence For Smart Education**
 
-Overview
---------
-This repository contains a knowledge-based recommender system built for smart education scenarios. The system combines domain knowledge (rules, metadata, and content descriptors) with AI-driven components to suggest educational resources, learning paths, or exercises tailored to learner profiles and course objectives.
+A smart AI-driven recommendation and peer-networking platform tailored for students to discover academic peers, project collaborators, and study partners based on shared technical interests, departmental background, and academic domains using Natural Language Processing (NLP) and Machine Learning techniques.
 
-Key Components / Working Function
---------------------------------
-- Knowledge Base: Encodes rules, mappings, and metadata describing courses, topics, prerequisites, and resource types.
-- Content Indexing: Preprocesses and indexes course materials and resources (text, videos, quizzes) with semantic tags.
-- User Profile & Context: Collects learner attributes (level, goals, past performance) and contextual signals.
-- Inference Engine: Applies the knowledge base rules to filter and prioritize candidate items based on prerequisites and learning goals.
-- AI Scoring Module: Uses ML/NLP models to compute semantic relevance and personalize ranking among candidates.
-- Output: Produces ranked recommendations and suggested learning paths, with explanations derived from the knowledge base.
+## About
+<!--Detailed Description about the project-->
+The **Knowledge-Based Recommender System for Smart Education** is an intelligent web-based application built to enhance student networking and collaborative learning in educational institutions. In traditional academic environments, finding peers with matching technical skill sets, complementary interests, or shared project goals often requires manual inquiries and ad-hoc searches. 
 
-How It Works (Simplified)
--------------------------
-1. Gather learner profile and target learning objective.
-2. Query the knowledge base to find eligible resources respecting prerequisite rules.
-3. Index candidate resources and score them using semantic similarity and personalization features.
-4. Combine rule-based filtering and AI scores to produce a final ranked list.
-5. Return recommendations with a short explanation (which rule or attribute led to the suggestion).
+This project solves this challenge by leveraging **Natural Language Processing (NLP)**, specifically **TF-IDF (Term Frequency-Inverse Document Frequency) Vectorization** and **Cosine Similarity**, to analyze student interest profiles and dynamically compute compatibility scores. The system features a responsive **Streamlit** user interface, secure authentication (for both Students and Administrators), profile management, and a centralized **SQLite** relational database.
 
-Getting Started
----------------
-1. Inspect the code under the `code` folder to find data preprocessing, knowledge base definitions, and model code.
-2. Prepare or point the system to a dataset of resources and learner profiles.
-3. Run the main scripts (see `code` for entry points) to build the index and start generating recommendations.
+## Features
+<!--List the features of the project as shown below-->
+- **AI-Powered Recommendation Engine**: Utilizes TF-IDF and Cosine Similarity to compute affinity scores and recommend best-fit peer connections.
+- **Role-Based Access Control**:
+  - **Student Portal**: User registration, login, profile setup, and personalized connection discovery.
+  - **Admin Portal**: Comprehensive dashboard to view, add, edit, and delete student records from the database.
+- **Interactive Streamlit Web UI**: Clean, responsive, and easy-to-navigate user interface with custom styling.
+- **Lightweight & Fast**: Built with Python, Streamlit, SQLite, and Scikit-Learn with minimal computational overhead.
+- **Cloud Deployed**: Ready for deployment on Streamlit Community Cloud.
 
-Notes
------
-- The repository contains example assets (in `img`) and license information.
-- If you want, I can add a small `run` script, examples, or a usage section describing exact commands to run the system locally.
+## Requirements
+<!--List the requirements of the project as shown below-->
+* **Operating System**: Windows 10/11, macOS, or Linux (Ubuntu 20.04+)
+* **Development Environment**: Python 3.8 or later
+* **Frameworks & Libraries**:
+  - `streamlit` - Interactive web application framework
+  - `scikit-learn` - TF-IDF vectorization and cosine similarity calculations
+  - `pandas` - Data manipulation and table rendering
+  - `sqlite3` - Lightweight embedded relational database management
+* **IDE**: VSCode / PyCharm / Any Python IDE
+* **Version Control**: Git & GitHub
+
+## Live Deployment
+- **Deployed App URL**: [https://kbrsminiprojectsaveetha.streamlit.app/](https://kbrsminiprojectsaveetha.streamlit.app/)
+
+## Installation & Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/CHAITANYA-PS/Knowledge-Based-Recommender-System-Using-Artificial-Intelligence-For-Smart-Education.git
+   cd Knowledge-Based-Recommender-System-Using-Artificial-Intelligence-For-Smart-Education
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r Miniproject/Miniproject-main/code/requirements.txt
+   ```
+   *(Or `pip install streamlit scikit-learn pandas`)*
+
+3. **Run the Streamlit application:**
+   ```bash
+   cd Miniproject/Miniproject-main/code
+   streamlit run App.py
+   ```
+
+## System Architecture
+<!--System Architecture Workflow-->
+```
++-------------------------------------------------------------+
+|                     Streamlit Web UI                        |
+|  (Student Registration / Login / Admin Management Dashboard)|
++------------------------------+------------------------------+
+                               |
+                               v
++-------------------------------------------------------------+
+|                  Database Layer (SQLite3)                   |
+|       (Stores Student Profiles, Credentials & Interests)    |
++------------------------------+------------------------------+
+                               |
+                               v
++-------------------------------------------------------------+
+|                   AI Recommendation Engine                  |
+|    1. Extract Interest Strings                              |
+|    2. TF-IDF Vectorization                                  |
+|    3. Cosine Similarity Matching Matrix                     |
+|    4. Rank & Recommend Top Peer Connections                 |
++-------------------------------------------------------------+
+```
+
+## Results and Impact
+<!--Give the results and impact as shown below-->
+The Knowledge-Based Recommender System successfully bridges the gap between students seeking collaborators across departments and years. By utilizing content-based filtering on domain interests, it facilitates meaningful student connections, fosters academic collaboration, and enhances the smart education ecosystem.
+
+## References
+1. F. Ricci, L. Rokach, and B. Shapira, *Introduction to Recommender Systems Handbook*, Springer, 2015.
+2. C. D. Manning, P. Raghavan, and H. Schütze, *Introduction to Information Retrieval*, Cambridge University Press, 2008.
